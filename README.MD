@@ -1,0 +1,19 @@
+# How to run
+- Connect to AWS academy and start the lab in the sandbox environment
+- copy the credentials then run `nano ~/.aws/credentials` and copy the credentials there
+- run the file ./lab3AWS.sh
+- go in the AWS console and copy the IP of the web server
+- run `chmod 700 key-pair-web.pem` `chmod 700 snort.sh` `chmod 700 server.py`
+- run `scp -i "key-pair-web.pem" "snort.sh" ubuntu@18.207.51.200:/home/ubuntu`
+- run `scp -i "key-pair-web.pem" "sql-injection.rules" ubuntu@18.207.51.200:/home/ubuntu`
+- run `scp -i "key-pair-web.pem" "server.py" ubuntu@18.207.51.200:/home/ubuntu`
+- run `ssh -i "key-pair-web.pem" ubuntu@18.207.51.200`
+- run `./snort.sh and install snort`
+- run `python3 server.py`
+- run `sudo snort -T -c /etc/snort/snort.conf`
+- run `sudo snort -b -L paquets.pcap`
+- from your home machine run the `socket_test.py` or send requests with postman using `http://52.44.214.54/path/to/resource` then stop the snort process. Remember to change the IP in the socket_test and in Postman request.
+- run `sudo apt install tcpick`
+- run `cd /var/log/snort`
+- run `sudo tcpick -C -yP -r paquets.pcap.1699455927` and look for your request content
+- you can also run `sudo snort -r paquets.pcap.1699455927` to see if any alert was raised

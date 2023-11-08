@@ -1,0 +1,4 @@
+alert tcp any any -> any 80 (msg:"SQL Injection detected"; content:"' OR "; sid:1000001;)
+alert tcp any any -> any 80 (msg:"SQL Injection detected"; content:"DROP DATABASE"; sid:1000002;)
+alert tcp any any -> any 80 (msg:"SQL Injection detected"; content:"UNION"; sid:1000003;)
+alert tcp any any -> any 80 (msg:"SQL Injection detected"; content:"' 1 = 1"; sid:1000004;)
