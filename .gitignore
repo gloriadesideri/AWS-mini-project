@@ -1,0 +1,4 @@
+./key-pair-web.pem
+./key-pair-db.pem
+./key-pair-ids.pem
+./aws_variables.txt
